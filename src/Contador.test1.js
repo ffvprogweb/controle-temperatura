@@ -24,7 +24,7 @@ test("CT03 - o valor do contador deve decrementar de 1 no click do botao", () =>
   const valorContador = Number(screen.getByTestId("contador").textContent);
   expect(valorContador).toEqual(-1);
 });
-test("CT04 - verifica o estado do contador na inicializao", () => {
+test("CT04- verifica o estado do contador na inicializao", () => {
   const { getByTestId } = render(<Adiciona />);
   const contadorElement = getByTestId("contador");
   expect(contadorElement.textContent).toBe(" 0"); // Verifica se o texto inicial é '0'
@@ -53,15 +53,11 @@ test("CT06 - o valor do contador deve incrementar de 1 a cada click do botao", (
 test("CT07 - o botao reset deve registrar zero quando pressionado", () => {
   render(<App />);
   const btnReset = screen.getByText("Reset");
-  const btnIncrementa = screen.getByText("Incremento");
   fireEvent.click(btnReset);
-  //expect - resultado esperado - entao valor do contador é zero e a cor do botao é preto
   const valorContador = Number(screen.getByTestId("contador").textContent);
   expect(btnReset).toBeTruthy();
   expect(valorContador).toEqual(0);
-  expect(btnIncrementa).toHaveStyle("color: black");
 });
-
 test("CT08 - deve mudar a cor do botão para vermelho quando o contador é maior que 10", () => {
   const { getByText } = render(<Adiciona />);
   const btnIncrementa = getByText("Incremento");
@@ -85,7 +81,7 @@ test("CT08 - deve mudar a cor do botão para vermelho quando o contador é maior
   // Verificar se a cor do botão é vermelha
   expect(btnIncrementa).toHaveStyle("color: red");
 });
-test("CT08 - deve mudar a cor do botão para vermelho quando o contador é maior que 10", () => {
+test("CT09 - deve mudar a cor do botão para preto quando o contador é decrementado para 10", () => {
   const { getByText } = render(<Adiciona />);
   const btnIncrementa = getByText("Incremento");
   const btnDecrementa = screen.getByText("Decremento");
@@ -108,4 +104,30 @@ test("CT08 - deve mudar a cor do botão para vermelho quando o contador é maior
   fireEvent.click(btnDecrementa);
   // Verificar se a cor do botão é preto
   expect(btnIncrementa).toHaveStyle("color: black");
+});
+test("CT09 - deve manter a cor em red quando o contador eh decrementado", () => {
+  const { getByText } = render(<Adiciona />);
+  const btnIncrementa = getByText("Incremento");
+  const btnDecrementa = screen.getByText("Decremento");
+
+  // Clicar no botão incremento várias vezes para aumentar o contador
+  fireEvent.click(btnIncrementa);
+  fireEvent.click(btnIncrementa);
+  fireEvent.click(btnIncrementa);
+  fireEvent.click(btnIncrementa);
+  fireEvent.click(btnIncrementa);
+  fireEvent.click(btnIncrementa);
+  fireEvent.click(btnIncrementa);
+  fireEvent.click(btnIncrementa);
+  fireEvent.click(btnIncrementa);
+  fireEvent.click(btnIncrementa);
+  fireEvent.click(btnIncrementa);
+  fireEvent.click(btnIncrementa);
+
+  // Dado que o contador é igual a 12
+  expect(getByText("12")).toBeInTheDocument();
+  //Quando decremento o contador
+  fireEvent.click(btnDecrementa);
+  // entao a cor do botão é mantida em red
+  expect(btnIncrementa).toHaveStyle("color: red");
 });

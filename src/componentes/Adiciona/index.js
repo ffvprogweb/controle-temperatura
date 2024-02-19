@@ -16,23 +16,21 @@ export default function Adiciona() {
       setCorBotao("black");
     }
   };
-
   const decrement = () => {
     const newContador = contador - 1;
     setContador(newContador);
-    // Mantem a cor do botao red enquanto o contador é maior que 10
+    // Mantem a cor do botão “red” enquanto o contador é maior que 10
     if (newContador > 10) {
       setCorBotao("red");
     } else {
       setCorBotao("black");
     }
   };
-  // Reinicia o contador para o valor inicial e atribui a cor black para o botao
+  // Retorna o valor para zero e a cor do botão para “black”
   const restart = () => {
     setContador(valorInicial);
     setCorBotao("black");
   };
-
   return (
     <div>
       <h3 className="titulo"> Controlador de Temperatura </h3>

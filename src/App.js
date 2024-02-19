@@ -1,10 +1,11 @@
 import "./App.css";
-import Adiciona from "./componentes/Adiciona";
+import ConsultaCep from "./componentes/ConsultaCep";
 
 function App() {
   return (
     <div className="App">
-      <Adiciona />
+      {/*<Adiciona />*/}
+      <ConsultaCep />
     </div>
   );
 }
