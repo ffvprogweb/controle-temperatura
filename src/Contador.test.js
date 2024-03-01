@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { render, fireEvent, screen } from "@testing-library/react";
-import Adiciona from "./componentes/Adiciona/index";
+import Adiciona from "./componentes/Adiciona";
 import App from "./App";
 test("CT01- verifica o estado do contador na inicializacao", () => {
   //dado que o contador foi inicializado
@@ -38,7 +38,7 @@ test("CT04- verifica o estado do contador na inicializacao", () => {
   expect(valorContador).toBe(0);
 });
 test("CT05 - na inicialização deve apresentar o titulo da pagina", () => {
-  render(<App />);
+  render(<Adiciona />);
   const label = screen.getByText("Controlador de Temperatura");
   expect(label).toBeTruthy();
 });
@@ -51,7 +51,7 @@ test("CT06 - o valor do contador deve incrementar de 1 a cada click do botao", (
   expect(valorContador).toEqual(2);
 });
 test("CT07 - o botao reset deve registrar zero quando pressionado", () => {
-  render(<App />);
+  render(<Adiciona />);
   const btnReset = screen.getByText("Reset");
   fireEvent.click(btnReset);
   const valorContador = Number(screen.getByTestId("contador").textContent);
@@ -105,7 +105,7 @@ test("CT09 - deve mudar a cor do botão para preto quando o contador é decremen
   // Verificar se a cor do botão é preto
   expect(btnIncrementa).toHaveStyle("color: black");
 });
-test("CT09 - deve manter a cor em red quando o contador eh decrementado", () => {
+test("CT10 - deve manter a cor em red quando o contador eh decrementado", () => {
   const { getByText } = render(<Adiciona />);
   const btnIncrementa = getByText("Incremento");
   const btnDecrementa = screen.getByText("Decremento");

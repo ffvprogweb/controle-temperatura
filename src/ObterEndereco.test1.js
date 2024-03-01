@@ -37,7 +37,7 @@ test("ct03 - valida o comportamento da funcao obtem endereco para um cep valido"
   );
 });
 
-test("ct03 - valida o comportamento da funcao obtem endereco para um cep invalido branco", async () => {
+test("ct04 - valida o comportamento da funcao obtem endereco para um cep invalido branco", async () => {
   //dado que o componente foi instanciado
   render(<App />);
   const btnBuscar = screen.getByRole("button", { name: /buscar/i });

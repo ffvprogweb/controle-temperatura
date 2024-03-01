@@ -4,8 +4,8 @@ import ConsultaCep from "./componentes/ConsultaCep";
 function App() {
   return (
     <div className="App">
-      {/*<Adiciona />*/}
-      <ConsultaCep />
+      <Adiciona />
+      {/*<ConsultaCep /> */}
     </div>
   );
 }

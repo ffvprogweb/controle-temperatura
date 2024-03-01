@@ -23,7 +23,6 @@ function ConsultaCep() {
         throw new Error("Erro na busca do CEP");
       }
     } catch (error) {
-      console.error("Erro na busca do CEP:", error);
       setErro("Erro na busca do CEP");
       setEndereco(null);
     }
