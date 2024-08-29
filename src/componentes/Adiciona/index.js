@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./styles.css";
 
-export default function Adiciona() {
+function Adiciona() {
   const valorInicial = 0;
   const [contador, setContador] = useState(valorInicial);
   const [corBotao, setCorBotao] = useState("black");
@@ -57,3 +57,4 @@ export default function Adiciona() {
     </div>
   );
 }
+export default Adiciona;
