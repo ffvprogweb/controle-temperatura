@@ -1,5 +1,5 @@
 import "./App.css";
-import ConsultaCep from "./componentes/ConsultaCep";
+import Adiciona from "./componentes/Adiciona";
 
 function App() {
   return (
